@@ -1,6 +1,11 @@
 package flow
 
-import "context"
+import (
+	"context"
+	"errors"
+)
+
+var ErrAbort = errors.New("stream aborted")
 
 func Take[T any](ctx context.Context, cnt int, src <-chan T) <-chan T {
 	dest := make(chan T)
