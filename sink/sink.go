@@ -1,4 +1,4 @@
-package stream
+package sink
 
 func Collect[T any](src <-chan T) []T {
 	out := []T{}

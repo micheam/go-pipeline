@@ -1,4 +1,4 @@
-package stream
+package sink_test
 
 import (
 	"context"
@@ -6,6 +6,8 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/micheam/go-steam/sink"
+	"github.com/micheam/go-steam/source"
 )
 
 func TestDrain(t *testing.T) {
@@ -13,9 +15,9 @@ func TestDrain(t *testing.T) {
 	defer cancel()
 
 	want := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	src := Stream(ctx, want)
+	src := source.Stream(ctx, want)
 
-	if diff := cmp.Diff(want, Collect(src)); diff != "" {
+	if diff := cmp.Diff(want, sink.Collect(src)); diff != "" {
 		t.Errorf("Drained mismatch (-want, +got):%s\n", diff)
 	}
 }

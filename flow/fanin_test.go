@@ -1,9 +1,12 @@
-package stream
+package flow_test
 
 import (
 	"context"
 	"testing"
 	"time"
+
+	"github.com/micheam/go-steam/flow"
+	"github.com/micheam/go-steam/sink"
 )
 
 func TestMerge(t *testing.T) {
@@ -30,7 +33,7 @@ func TestMerge(t *testing.T) {
 		}
 	}()
 
-	coll := Collect(Merge(ctx, src))
+	coll := sink.Collect(flow.Merge(ctx, src))
 	if len(coll) != values*channels {
 		t.Errorf("want %d, but got %d", values*channels, len(coll))
 	}

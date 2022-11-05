@@ -1,9 +1,12 @@
-package stream
+package flow_test
 
 import (
 	"context"
 	"testing"
 	"time"
+
+	"github.com/micheam/go-steam/flow"
+	"github.com/micheam/go-steam/sink"
 )
 
 func TestTake(t *testing.T) {
@@ -20,7 +23,7 @@ func TestTake(t *testing.T) {
 		}
 	}()
 
-	got := Collect(Take(ctx, want, src))
+	got := sink.Collect(flow.Take(ctx, want, src))
 	if len(got) != want {
 		t.Errorf("want %d but got %d", want, len(got))
 	}
