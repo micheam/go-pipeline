@@ -20,7 +20,7 @@
 ## IO Sinks and Sources
 
 - [x] FromReader  - Emits the contents of a io.Reader.
-- [ ] ToWriter    - Create a sink which will write incoming Byte to a given io.Writer.
+- [ ] WriteTo     - Create a sink which will write incoming Byte to a given io.Writer.
 
 ## Fan-out
 
@@ -43,7 +43,7 @@
 ## Misc
 
 - [x] Take   - Pass N of incoming elements downstream and then close.
-- [ ] Filter - Apply filter Fn to incoming elements, then pass downstream.
+- [x] Filter - Apply filter Fn to incoming elements, then pass downstream.
 
 
 ## Usage
