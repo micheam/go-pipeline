@@ -16,7 +16,7 @@ func TestBroadcast(t *testing.T) {
 	var (
 		ctx, cancel = context.WithDeadline(context.Background(), time.Now().Add(2*time.Second))
 		orig        = []int{1, 2, 3, 4, 5}
-		src         = source.Stream(ctx, orig)
+		src         = source.FromSlice(ctx, orig)
 	)
 	defer cancel()
 

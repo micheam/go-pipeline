@@ -2,8 +2,8 @@ package source
 
 import "context"
 
-// Stream is a stream generator, which converts the received values into a stream and returns it.
-func Stream[T any](ctx context.Context, values []T) <-chan T {
+// FromSlice is a stream generator, which converts the received values into a stream and returns it.
+func FromSlice[T any](ctx context.Context, values []T) <-chan T {
 	out := make(chan T)
 	go func() {
 		defer close(out)
@@ -18,7 +18,7 @@ func Stream[T any](ctx context.Context, values []T) <-chan T {
 	return out
 }
 
-func StreamFn[T any](ctx context.Context, fn func() T) <-chan T {
+func RepeatFn[T any](ctx context.Context, fn func() T) <-chan T {
 	dest := make(chan T)
 	go func() {
 		defer close(dest)
