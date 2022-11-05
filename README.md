@@ -19,7 +19,7 @@
 
 ## IO Sinks and Sources
 
-- [ ] FromReader  - Emits the contents of a io.Reader.
+- [x] FromReader  - Emits the contents of a io.Reader.
 - [ ] ToWriter    - Create a sink which will write incoming Byte to a given io.Writer.
 
 ## Fan-out
