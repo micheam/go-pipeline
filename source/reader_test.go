@@ -2,30 +2,13 @@ package source_test
 
 import (
 	"context"
-	"os"
 	"strings"
 	"testing"
-	"time"
 
 	"github.com/google/go-cmp/cmp"
+	. "github.com/micheam/go-stream/internal/testinghelper"
 	"github.com/micheam/go-stream/source"
 )
-
-const deadline = 200 * time.Millisecond
-
-func withDeadline(parent context.Context) (context.Context, context.CancelFunc) {
-	return context.WithDeadline(context.Background(), time.Now().Add(deadline))
-}
-
-func openfile(t *testing.T, file string) *os.File {
-	t.Helper()
-	f, err := os.Open(file)
-	if err != nil {
-		t.Error(err)
-		t.FailNow()
-	}
-	return f
-}
 
 const testcontent = `73980586-9b76-4550-8a32-9a9e6f253faa
 09b74a47-468b-4d15-9058-629c44a7c4df
@@ -39,7 +22,7 @@ e70ded2e-b070-4bcf-a130-150f10a75d0a
 ac6908f3-f734-415c-a01f-d091b53a4a76`
 
 func TestFromReader(t *testing.T) {
-	ctx, cancel := withDeadline(context.Background())
+	ctx, cancel := WithDeadline(context.Background())
 	defer cancel()
 
 	r := strings.NewReader(testcontent)
