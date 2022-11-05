@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/micheam/go-steam/source"
+	"github.com/micheam/go-stream/source"
 )
 
 const deadline = 200 * time.Millisecond

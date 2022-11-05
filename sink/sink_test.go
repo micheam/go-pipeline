@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/micheam/go-steam/sink"
-	"github.com/micheam/go-steam/source"
+	"github.com/micheam/go-stream/sink"
+	"github.com/micheam/go-stream/source"
 )
 
 func TestDrain(t *testing.T) {
