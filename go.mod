@@ -1,4 +1,4 @@
-module github.com/micheam/go-pipeline
+module github.com/micheam/go-steam
 
 go 1.19
 
