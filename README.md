@@ -11,6 +11,7 @@
 
 - [ ] sink/WriteTo     - Create a sink which will write incoming Byte to a given io.Writer.
 - [ ] flow/Reduce - Start with first element and then apply the current and next value to the given function, when upstream complete the current value is emitted downstream.
+- [ ] sink/ForEach[T] - Invoke a given procedure for each element received.
 
 - [ ] flow/Balance[T] – (1 input, N outputs) given an input element emits to one of its output ports
 - [ ] flow/Concat[A] – (2 inputs, 1 output) concatenates two streams (first consume one, then the second one)
@@ -26,7 +27,6 @@
 - [ ] flow/UnzipWith[In,A,B,...] – (1 input, N outputs) takes a function of 1 input that given a value for each input emits N output elements
 - [ ] flow/ZipWith[A,B,...,Out] – (N inputs, 1 output) which takes a function of N inputs that given a value for each input emits 1 output element
 - [ ] flow/Zip[A,B] – (2 inputs, 1 output) is a ZipWith specialised to zipping input streams of A and B into a (A,B) tuple stream
-- [ ] sink/ForEach[T] - Invoke a given procedure for each element received.
 - [ ] source/Queue - make queue onto which elements can be pushed for emitting from the source.
 - [ ] source/Range - Emit each integer in a range, with an option to take bigger steps than 1.
 - [ ] source/Repeat - Stream a single object repeatedly.
