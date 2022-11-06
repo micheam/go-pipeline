@@ -33,7 +33,7 @@ func TestMerge(t *testing.T) {
 		}
 	}()
 
-	coll := sink.Collect(flow.Merge(ctx, src))
+	coll := sink.Collect(ctx, flow.Merge(ctx, src))
 	if len(coll) != values*channels {
 		t.Errorf("want %d, but got %d", values*channels, len(coll))
 	}

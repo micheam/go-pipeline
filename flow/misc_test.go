@@ -23,7 +23,7 @@ func TestTake(t *testing.T) {
 		}
 	}()
 
-	got := sink.Collect(flow.Take(ctx, want, src))
+	got := sink.Collect(ctx, flow.Take(ctx, want, src))
 	if len(got) != want {
 		t.Errorf("want %d but got %d", want, len(got))
 	}

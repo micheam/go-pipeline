@@ -25,7 +25,7 @@ func TestMap(t *testing.T) {
 
 	src := source.FromSlice(ctx, values)
 	mapped := flow.Map(ctx, src, fn)
-	got := sink.Collect(mapped)
+	got := sink.Collect(ctx, mapped)
 
 	if diff := cmp.Diff(want, got); diff != "" {
 		t.Errorf("mapped mismatch (-want, +got):%s\n", diff)
@@ -48,7 +48,7 @@ func TestMap_cancel(t *testing.T) {
 
 	src := source.FromSlice(ctx, values)
 	mapped := flow.Map(ctx, src, fn)
-	got := sink.Collect(mapped)
+	got := sink.Collect(ctx, mapped)
 
 	if diff := cmp.Diff(want, got); diff != "" {
 		t.Errorf("mapped mismatch (-want, +got):%s\n", diff)

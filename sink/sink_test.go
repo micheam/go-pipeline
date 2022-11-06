@@ -17,7 +17,7 @@ func TestDrain(t *testing.T) {
 	want := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	src := source.FromSlice(ctx, want)
 
-	if diff := cmp.Diff(want, sink.Collect(src)); diff != "" {
-		t.Errorf("Drained mismatch (-want, +got):%s\n", diff)
+	if diff := cmp.Diff(want, sink.Collect(ctx, src)); diff != "" {
+		t.Errorf("Collected mismatch (-want, +got):%s\n", diff)
 	}
 }

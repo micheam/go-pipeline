@@ -1,9 +1,18 @@
 package sink
 
-func Collect[T any](src <-chan T) []T {
+import "context"
+
+func Collect[T any](ctx context.Context, src <-chan T) []T {
 	out := []T{}
-	for v := range src {
-		out = append(out, v)
+	for {
+		select {
+		case <-ctx.Done():
+			return out
+		case v, ok := <-src:
+			if !ok {
+				return out
+			}
+			out = append(out, v)
+		}
 	}
-	return out
 }

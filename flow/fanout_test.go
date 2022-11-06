@@ -27,7 +27,7 @@ func TestBroadcast(t *testing.T) {
 		t.FailNow()
 	}
 
-	coll := sink.Collect(flow.Merge(ctx, got))
+	coll := sink.Collect(ctx, flow.Merge(ctx, got))
 	sort.IntSlice(coll).Sort()
 	if diff := cmp.Diff(orig, coll); diff != "" {
 		t.Errorf("Merged mismatch (-want, +got):%s\n", diff)
