@@ -5,7 +5,7 @@ import (
 	"sync"
 )
 
-func Merge[T any](ctx context.Context, src []chan T) <-chan T {
+func Merge[T any](ctx context.Context, src ...<-chan T) <-chan T {
 	var wg sync.WaitGroup
 	out := make(chan T)
 
